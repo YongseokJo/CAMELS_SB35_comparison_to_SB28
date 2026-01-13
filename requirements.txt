@@ -1,0 +1,26 @@
+# Core scientific stack
+numpy
+pandas
+matplotlib
+
+# PyTorch
+torch
+torchvision
+
+# Imaging (often required for torchvision PIL transforms)
+pillow
+
+# Progress bars (used by some training scripts)
+tqdm
+
+# --- Optional / environment-specific ---
+# Jupyter notebooks
+# jupyter
+# ipykernel
+
+# Model/augmentation helpers used in some scripts
+# timm
+
+# HPC / compilation tooling (can be difficult to install on non-cluster machines)
+# deepspeed
+# ninja
