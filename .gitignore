@@ -1,0 +1,57 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# --- Virtual environments ---
+.venv/
+.venv
+venv/
+ENV/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- Editors/OS ---
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Local scratch markers
+.last_run_code
+
+# --- Logs / batch outputs ---
+*.log
+*.out
+*.err
+
+# --- Project-specific generated artifacts ---
+# Large checkpoints / weights
+*.pt
+*.pth
+*.ckpt
+
+# Local model cache/checkpoints (keep split JSONs elsewhere)
+data/models/
+
+# Notebook-generated intermediate artifacts
+notebooks/*.pkl
+notebooks/*.pickle
+notebooks/*.npy
+notebooks/*.npz
+notebooks/*.png
+notebooks/*.pdf
+notebooks/.*
+
+# Generated plots / reports
+plot/
+test/plot/
+test/log/
+
+# Root-level generated figures (keep README, code, notebooks tracked)
+/*.png
+/*.pdf
