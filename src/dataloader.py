@@ -213,8 +213,12 @@ def loadCAMELS(field="Mtot", box="SB28", normalization=True,
             sums = data.sum(axis=(1, 2), keepdims=True) # shape = (N,1,1)
             data = data/sums
             data = np.log10(data)
-            data_norm[mask] = (data-data.mean())/data.std()
-            data_norm[~mask] = data_norm[mask].min()
+
+            if use_mask:
+                data_norm[mask] = (data-data.mean())/data.std()
+                data_norm[~mask] = data_norm[mask].min()
+            else:
+                data_norm = (data-data.mean())/data.std()
 
             """
             # old method
@@ -224,7 +228,6 @@ def loadCAMELS(field="Mtot", box="SB28", normalization=True,
             """
         else:
             data = np.log10(data)
-            #data = (data-data.mean())/data.std()
             if use_mask:
                 data_norm[mask] = (data-data.mean())/data.std()
                 data_norm[~mask] = data_norm[mask].min()

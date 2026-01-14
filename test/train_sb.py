@@ -31,6 +31,7 @@ class TrainConfig:
     box: str
     field: str
     sim: str
+    individual: bool
     batch_size: int
     epochs: int
     lr: float
@@ -255,7 +256,7 @@ def train_one(cfg: TrainConfig, model_name: str) -> None:
         field=cfg.field,
         box=cfg.box,
         normalization=True,
-        individual=False,
+        individual=cfg.individual,
         linear=False,
         buffer=0.3,
         sim=cfg.sim,
@@ -464,6 +465,7 @@ def main() -> None:
     p.add_argument("--box", required=True, choices=["SB28", "SB28_full", "SB35"])
     p.add_argument("--field", default="Mtot")
     p.add_argument("--sim", default="IllustrisTNG")
+    p.add_argument("--individual", action="store_true", default=False, help="Use per-sample normalization in loadCAMELS (default: False)")
 
     p.add_argument("--save-prefix", required=True)
     p.add_argument("--save-dir", default=str(REPO_ROOT / "data" / "models"))
@@ -522,6 +524,7 @@ def main() -> None:
         box=args.box,
         field=args.field,
         sim=args.sim,
+        individual=args.individual,
         batch_size=args.batch_size,
         epochs=args.epochs,
         lr=args.lr,
